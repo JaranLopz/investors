@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jorge Aranda López | Pre-Investment Production Review for Game Investors</title>
+  <meta name="description" content="Independent production review for game investors. Before you commit to a studio, I check its scope, budget, P&amp;L and delivery plan, and tell you what holds and what needs fixing.">
+  <meta name="author" content="Jorge Aranda López">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0b0f19">
+  <link rel="canonical" href="https://oveyo.github.io/investors.html"><!-- Update to the final URL -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pre-Investment Production Review for Game Investors">
+  <meta property="og:description" content="Before you commit to a game studio, check whether its plan holds up.">
+  <meta property="og:url" content="https://oveyo.github.io/investors.html">
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --bg-2: #111827;
+      --card: #161e2e;
+      --line: #2a3446;
+      --text: #e5e7eb;
+      --muted: #b6c0cf;
+      --white: #ffffff;
+      --accent: #fb923c;
+      --accent-text: #fdba74;
+      --btn: #c2410c;
+      --btn-hover: #9a3412;
+      --focus: #fdba74;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    a { color: var(--accent-text); }
+    a:hover { color: var(--white); }
+
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+    .skip-link {
+      position: absolute; left: 1rem; top: -100px;
+      background: var(--btn); color: var(--white);
+      padding: .6rem 1rem; border-radius: 8px; font-weight: 700; z-index: 100;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.25rem; }
+    section { padding: 4.5rem 0; }
+    .band { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+    h1, h2, h3 {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      color: var(--white); line-height: 1.2; text-wrap: balance;
+    }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); margin: .5rem 0 1rem; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 1rem; }
+    h3 { font-size: 1.25rem; margin: 0 0 .5rem; }
+    p { margin: 0 0 1rem; }
+
+    .lead { font-size: 1.2rem; color: var(--muted); max-width: 40rem; }
+    .eyebrow {
+      display: inline-block; font-size: .95rem; font-weight: 700;
+      letter-spacing: .04em; text-transform: uppercase; color: var(--accent-text);
+    }
+
+    .btn {
+      display: inline-block; padding: .9rem 1.4rem; border-radius: 10px;
+      font-weight: 700; text-decoration: none; text-align: center;
+      transition: background .2s ease, color .2s ease;
+    }
+    .btn-primary { background: var(--btn); color: var(--white); }
+    .btn-primary:hover { background: var(--btn-hover); color: var(--white); }
+    .btn-secondary { border: 2px solid var(--line); color: var(--white); }
+    .btn-secondary:hover { border-color: var(--accent-text); color: var(--white); }
+    .btn-row { display: flex; flex-wrap: wrap; gap: .85rem; margin-top: 1.5rem; }
+
+    .site-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 0; gap: 1rem; flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: .75rem; text-decoration: none; color: var(--white); font-weight: 700; }
+    .brand-mark {
+      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--card); border: 2px solid var(--accent); color: var(--accent-text);
+      font-family: "Space Grotesk", system-ui, sans-serif; font-weight: 700;
+    }
+    .header-cta { font-size: 1rem; padding: .6rem 1rem; }
+    .hero { padding: 3rem 0 4.5rem; }
+    .hero-meta { font-size: 1rem; color: var(--muted); margin-top: 1.5rem; }
+
+    .grid { display: grid; gap: 1.25rem; }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+    .card {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 14px; padding: 1.5rem;
+    }
+    .card p { color: var(--muted); font-size: 1rem; margin: 0; }
+
+    .num {
+      display: inline-grid; place-items: center; width: 2.2rem; height: 2.2rem;
+      border-radius: 50%; background: var(--btn); color: var(--white);
+      font-weight: 700; margin-bottom: .75rem;
+    }
+
+    ul.checks { list-style: none; padding: 0; margin: 1rem 0 0; }
+    ul.checks li {
+      position: relative; padding-left: 1.6rem; margin-bottom: .6rem;
+      color: var(--muted); font-size: 1rem;
+    }
+    ul.checks li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-text); font-weight: 700; }
+    ul.checks strong { color: var(--white); }
+
+    .package { display: flex; flex-direction: column; }
+    .package .tag {
+      font-size: .9rem; color: var(--accent-text); font-weight: 700;
+      text-transform: uppercase; letter-spacing: .04em;
+    }
+    .price {
+      font-family: "Space Grotesk", system-ui, sans-serif;
+      font-size: 2rem; font-weight: 700; color: var(--white); margin: .5rem 0 0;
+    }
+    .price small { font-size: .95rem; color: var(--muted); font-weight: 400; }
+    .package .btn { margin-top: auto; }
+    .package .note { font-size: .95rem; color: var(--muted); margin-top: .5rem; }
+
+    .steps { counter-reset: step; list-style: none; padding: 0; margin: 2rem 0 0; display: grid; gap: 1.25rem; }
+    .steps li { display: grid; grid-template-columns: 3rem 1fr; gap: 1rem; align-items: start; }
+    .steps .num { margin: 0; }
+    .steps p { color: var(--muted); margin: 0; font-size: 1rem; }
+
+    .boundary {
+      border-left: 4px solid var(--accent); padding: 1rem 1.25rem;
+      background: var(--card); border-radius: 0 12px 12px 0;
+    }
+    .boundary ul { margin: .5rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+    .boundary li { margin-bottom: .4rem; }
+
+    .case {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 2rem;
+    }
+    .case-meta { color: var(--muted); font-size: 1rem; margin-bottom: 1.25rem; }
+    .quote {
+      border-left: 4px solid var(--accent); padding-left: 1.25rem;
+      margin: 1.75rem 0 0; font-style: italic; color: var(--text);
+    }
+    .quote footer { font-style: normal; color: var(--muted); font-size: 1rem; margin-top: .75rem; }
+
+    details {
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: .85rem;
+    }
+    summary {
+      cursor: pointer; font-weight: 700; color: var(--white); list-style: none;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; float: right; color: var(--accent-text); font-size: 1.3rem; line-height: 1; }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); margin: .9rem 0 0; font-size: 1rem; }
+
+    .final { text-align: center; }
+    .final p { color: var(--muted); max-width: 36rem; margin-left: auto; margin-right: auto; }
+    .final .btn-row { justify-content: center; }
+
+    footer {
+      border-top: 1px solid var(--line); padding: 2.5rem 0;
+      font-size: .95rem; color: var(--muted);
+    }
+    footer p { margin-bottom: .6rem; }
+    footer nav a { margin-right: 1.25rem; }
+
+    @media (max-width: 600px) {
+      body { font-size: 17px; }
+      section { padding: 3.25rem 0; }
+      .case { padding: 1.4rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!--
+    LINKS
+    Consider a separate Cal.com event for investors so their bookings are distinct.
+    Replace the URL below if you create one.
+  -->
+
+  <header class="wrap site-header">
+    <a href="#top" class="brand" aria-label="Jorge Aranda López, home">
+      <span class="brand-mark" aria-hidden="true">JAL</span>
+      <span>Jorge Aranda López</span>
+    </a>
+    <a class="btn btn-primary header-cta" href="https://cal.com/jorge-aranda-lopez-d3vboo/free-call" target="_blank" rel="noopener noreferrer">Book a free call</a>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap">
+        <span class="eyebrow">For game investors, funds and family offices</span>
+        <h1>Before you commit, check whether the plan holds up.</h1>
+        <p class="lead">
+          I’m an independent production consultant. I review a studio’s scope, budget, P&amp;L and delivery plan, then give you a clear view of what’s solid, what’s at risk and what to ask the team before you invest.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://cal.com/jorge-aranda-lopez-d3vboo/free-call" target="_blank" rel="noopener noreferrer">Book a free 20-minute call</a>
+          <a class="btn btn-secondary" href="#review">See how the review works</a>
+        </div>
+        <p class="hero-meta">
+          Former producer at Cloud Imperium Games (<em>Star Citizen</em>, <em>Squadron 42</em>) · PMP® certified
+        </p>
+      </div>
+    </section>
+
+    <!-- RISKS -->
+    <section class="band" aria-labelledby="risks-title">
+      <div class="wrap">
+        <span class="eyebrow">What I look for</span>
+        <h2 id="risks-title">A great prototype doesn’t guarantee delivery</h2>
+        <p class="lead">Most funding risk in game development sits in three places.</p>
+
+        <div class="grid grid-3" style="margin-top: 2rem;">
+          <article class="card">
+            <h3>Scope vs. budget</h3>
+            <p>Is the planned content achievable with the money and time requested, or does it assume a team that doesn’t yet exist?</p>
+          </article>
+          <article class="card">
+            <h3>Money model</h3>
+            <p>Does the P&amp;L handle platform fees, taxes, publisher splits and recoupment in the right order, with realistic sales assumptions?</p>
+          </article>
+          <article class="card">
+            <h3>Delivery capacity</h3>
+            <p>Does anyone on the team have experience shipping at this size, and is there a credible production plan behind the timeline?</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW THE REVIEW WORKS -->
+    <section id="review" aria-labelledby="review-title">
+      <div class="wrap">
+        <span class="eyebrow">How the review works</span>
+        <h2 id="review-title">Three steps, from brief to decision</h2>
+
+        <ol class="steps">
+          <li>
+            <span class="num" aria-hidden="true">1</span>
+            <div>
+              <h3>Confidential brief</h3>
+              <p>You share the pitch deck, roadmap and P&amp;L under NDA. If the studio can’t share something, we note the gap rather than guess.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">2</span>
+            <div>
+              <h3>Independent review</h3>
+              <p>I test the scope, financial model and delivery plan against what comparable projects have needed. I can join one call with the studio to clarify key points.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">3</span>
+            <div>
+              <h3>Written memo</h3>
+              <p>A short document with red, amber and green findings, the questions to put to the team, and the fixes I would prioritise. The decision stays with you.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BOUNDARIES -->
+    <section class="band" aria-labelledby="boundaries-title">
+      <div class="wrap">
+        <span class="eyebrow">How I work</span>
+        <h2 id="boundaries-title">Clear boundaries, so the review stays useful</h2>
+
+        <div class="boundary" style="margin-top: 1.5rem;">
+          <ul>
+            <li><strong>Independent:</strong> You pay me directly, not the studio. I don’t take equity, a finder’s fee or any payment linked to the deal closing.</li>
+            <li><strong>Production focus:</strong> I assess delivery and financial plausibility. I don’t judge the game’s market potential or give investment advice.</li>
+            <li><strong>No guarantees:</strong> A review reduces risk; it doesn’t remove it or predict returns.</li>
+            <li><strong>Not a substitute</strong> for legal, tax or financial due diligence. Your own advisers should cover those areas.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section id="packages" aria-labelledby="packages-title">
+      <div class="wrap">
+        <span class="eyebrow">Packages</span>
+        <h2 id="packages-title">Fixed scope, clear prices</h2>
+        <p class="lead">Prices exclude VAT. Not sure which applies? Book the free call and we’ll decide together.</p>
+
+        <div class="grid grid-2" style="margin-top: 2rem;">
+
+          <!-- Free call -->
+          <article class="card package">
+            <span class="tag">Start here · 20 minutes</span>
+            <h3 style="margin-top:.5rem;">Initial Discussion</h3>
+            <p class="price">Free</p>
+            <ul class="checks">
+              <li><strong>Understand the opportunity</strong>: the studio, the stage and what you need to decide.</li>
+              <li><strong>Honest fit check</strong>: I’ll tell you if a review would or wouldn’t help.</li>
+            </ul>
+            <a class="btn btn-primary" href="https://cal.com/jorge-aranda-lopez-d3vboo/free-call" target="_blank" rel="noopener noreferrer">Book the free call</a>
+          </article>
+
+          <!-- Pre-investment review -->
+          <article class="card package">
+            <span class="tag">Pre-investment · 20 hours · 2 weeks</span>
+            <h3 style="margin-top:.5rem;">Pre-Investment Production Review</h3>
+            <p class="price">from €1,900 <small>excl. VAT</small></p>
+            <ul class="checks">
+              <li><strong>Scope and budget review</strong> against the funding request.</li>
+              <li><strong>P&amp;L and recoupment check</strong>, with the assumptions made explicit.</li>
+              <li><strong>Delivery plan assessment</strong>: milestones, team and hiring.</li>
+              <li><strong>Written memo</strong> with findings and questions for the studio.</li>
+            </ul>
+            <p class="note">Fixed fee, agreed before work begins. Price to confirm.</p><!-- Set your investor price; this uses the studio audit price as a placeholder. -->
+            <a class="btn btn-secondary" href="mailto:jaranlopz@gmail.com?subject=Pre-Investment%20Production%20Review" >Request a review</a>
+          </article>
+
+          <!-- Deep review -->
+          <article class="card package">
+            <span class="tag">Larger rounds · 40 hours · 3–4 weeks</span>
+            <h3 style="margin-top:.5rem;">Full Diligence Support</h3>
+            <p class="price">from €4,500 <small>excl. VAT</small></p>
+            <ul class="checks">
+              <li><strong>Everything in the pre-investment review</strong>, plus:</li>
+              <li><strong>Detailed production model</strong> and risk register.</li>
+              <li><strong>Live session with the studio</strong> to test key assumptions.</li>
+              <li><strong>Question list</strong> prepared for your investment committee.</li>
+            </ul>
+            <p class="note">Price to confirm. Set according to round size and scope.</p><!-- Adjust or remove for investors -->
+            <a class="btn btn-secondary" href="mailto:jaranlopz@gmail.com?subject=Full%20Diligence%20Support" >Request details</a>
+          </article>
+
+          <!-- Post-investment -->
+          <article class="card package">
+            <span class="tag">After you invest · monthly</span>
+            <h3 style="margin-top:.5rem;">Milestone Monitoring</h3>
+            <p class="price">from €[price] <small>/ month, excl. VAT</small></p>
+            <ul class="checks">
+              <li><strong>Monthly milestone review</strong> with the studio.</li>
+              <li><strong>Plain-English progress report</strong> for your records.</li>
+              <li><strong>Early warning</strong> on slippage, budget drift or missing decisions.</li>
+            </ul>
+            <p class="note">Minimum term to be agreed. Price to confirm.</p>
+            <a class="btn btn-secondary" href="mailto:jaranlopz@gmail.com?subject=Milestone%20Monitoring" >Ask about monitoring</a>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="band" aria-labelledby="proof-title">
+      <div class="wrap">
+        <span class="eyebrow">Proof</span>
+        <h2 id="proof-title">What a review changed in practice</h2>
+
+        <article class="case">
+          <!--
+            TO CONFIRM BEFORE PUBLISHING:
+            - Dastan has approved this summary and the quote.
+            - Keep it only if the studio agrees to be named.
+          -->
+          <p class="case-meta">
+            <strong>Broken Rampart Interactive</strong> · <em>Project Renaissance</em> (Unreal Engine 5, grand strategy)<br>
+            Preparing a $5.06M publisher package over 36 months.
+          </p>
+
+          <ul class="checks">
+            <li><strong>Scope tightened</strong> to a funded vertical slice, with unstarted systems moved to later milestones.</li>
+            <li><strong>Money model corrected.</strong> The tax and recoupment order was rebuilt, lowering the publisher’s break-even from 316,250 to 253,000 units at a $40 SRP.</li>
+            <li><strong>Production leadership added</strong> to the pitch for ongoing diligence.</li>
+          </ul>
+
+          <blockquote class="quote">
+            “Having his production expertise on board not only saved us months of trial and error, but also gives publishers the reassurance that we can deliver on time and on scope.”
+            <footer>Dastan, CEO, Broken Rampart Interactive</footer>
+          </blockquote>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section aria-labelledby="faq-title">
+      <div class="wrap" style="max-width: 760px;">
+        <span class="eyebrow">Questions</span>
+        <h2 id="faq-title">Common questions</h2>
+
+        <details>
+          <summary>Do you invest in studios or take equity?</summary>
+          <p>No. I don’t invest, take equity or receive any fee tied to a deal closing. You pay for the review, and it’s the same whether or not you invest.</p>
+        </details>
+
+        <details>
+          <summary>Will you find deals or introduce studios to me?</summary>
+          <p>No. I review the opportunities you already have. I don’t source deals or broker introductions.</p>
+        </details>
+
+        <details>
+          <summary>Can we start before sharing confidential materials?</summary>
+          <p>Yes. We can sign an NDA first, and I won’t use or share your materials beyond the review.</p><!-- Confirm you can offer this -->
+        </details>
+
+        <details>
+          <summary>What if the studio won’t share its P&amp;L or roadmap?</summary>
+          <p>Then the review will be incomplete, and the memo will say so. Missing information is a finding in its own right.</p>
+        </details>
+
+        <details>
+          <summary>Do you review projects outside games?</summary>
+          <p>Not at the moment. This page is about game production and funding.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final" aria-labelledby="final-title">
+      <div class="wrap">
+        <h2 id="final-title">Considering a studio right now?</h2>
+        <p>Book a 20-minute call to see whether a production review would help before you commit.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://cal.com/jorge-aranda-lopez-d3vboo/free-call" target="_blank" rel="noopener noreferrer">Book a free 20-minute call</a>
+          <a class="btn btn-secondary" href="mailto:jaranlopz@gmail.com?subject=Investor%20Inquiry">Email me</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <a href="#packages">Packages</a>
+        <a href="mailto:jaranlopz@gmail.com">jaranlopz@gmail.com</a>
+        <a href="https://www.linkedin.com/in/YOUR-LINKEDIN/" target="_blank" rel="noopener noreferrer">LinkedIn</a><!-- Replace with your real profile URL -->
+      </nav>
+      <p style="margin-top: 1.25rem;">© <span id="year">2026</span> Jorge Aranda López. All rights reserved.</p>
+      <p>
+        <strong>Disclaimer:</strong> This is production consulting, not investment advice. Nothing here is a recommendation to invest, and I accept no responsibility for investment decisions.
+      </p>
+      <p>
+        <strong>Privacy:</strong> This site is static, sets no tracking cookies and loads no external fonts or scripts.
+        Calls are booked through Cal.com. Materials you send are used only for the review, under confidentiality, and can be deleted on request.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
